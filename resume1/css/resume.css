@@ -1,0 +1,51 @@
+/*清楚一些标签的自带样式*/
+header,p,li,a,ul,h1,h2,h3,h4,h5,h6,body{
+	padding: 0;
+	margin: 0;
+}
+/*使用伪元素的方法来清除浮动*/
+.clear-float:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*清除无序列表前自带的圆点*/
+ul li{
+	list-style: none;
+}
+/*清除a标签的下划线并且设置其字体颜色为黑色*/
+a{
+	text-decoration: none;
+	color: #000;
+}
+body{
+    background-image: url(../img/timg2.jpg);
+    background-size: cover;
+}
+.contain{
+	width: 700px;
+	margin: 0 auto;
+	background-image: linear-gradient(to bottom,#fff,#FEE662);
+	margin-top: 10%;
+	padding: 3%;
+}
+header{
+	text-align: center;
+}
+header ul li{
+	margin: 10px 0;
+}
+ul li img{
+	width: 20px;
+	height:20px;
+}
+.csdn img{
+	background-image: url(../img/csdn.ico);
+}
+.github img{
+	background-image: url(../img/github.ico);
+}
+.degree strong a:hover{
+	color:orange;
+}
+
