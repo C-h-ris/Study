@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Holy Grail</title>
+		<style>
+			body{
+				min-width: 420px;
+			}
+			#header{
+				background-color: cyan;
+				height: 200px;
+			}
+			#container{
+				padding-left: 150px;
+				padding-right: 120px;
+				background-color: red;
+				height: 400px;	
+			}
+			#container .cloumns{
+				float: right;
+				position: relative;
+				height:400px
+			}
+			#center{
+				width: 100%;
+				background-color: yellow;
+			}
+			#left{
+				width: 150px;
+				background-color: green;
+				margin-left: -150px;
+			}
+			#right{
+				width: 120px;
+				background-color:blue;
+				margin-right:-100% ;
+				left: 120px;
+			}
+			#footer{
+				background-color: black;
+				height: 200px;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- STEP1:Create the frame 首先创建一个框架,他由三部分组成；头部、中间部分以及尾部
+        	作者：offline
+        	时间：2019-02-16
+        	描述：然后我们设置中间部分的左右内边距为我们想要的左右两栏的宽度
+        -->
+        <!--
+        	STEP2:ADD the cloumns
+        	作者：offline
+        	时间：2019-02-16
+        	描述：第二部我们需要向中间部分添加列，添加的列就是我们所需要的栏数；这里我们需要三行；所以我们
+        	将添加三列
+        	接下来我们给这三栏添加适当的宽度并浮动他们，当然为了防止尾部的位置受到浮动的影响
+        	变化，我们需要清除浮动
+        	注意：在我们添加栏数的时候,我们需要将处于中间栏的标签写在其他栏之前；这么做是因为中间栏的宽度
+        	设置的是100% 如果不写在其他栏前面；那么当浮动的时候中间这一栏的前后栏会各自占据一行的空间。从而导致留白等问题。
+        -->
+        <!--
+        	STEP3:PULL the left cloumn into place
+        	作者：offline
+        	时间：2019-02-16
+        	描述：将左边列放置到左栏中，首先我们设置左边列的左外边距为-100%这样左边行就完全处于container这个容器的最左边
+        	然后我们需要用定位将其调整到左侧：具体的方法是设置其为相对定位并且right值为其宽度，那样左列就会向左平移其宽度个单位
+        	从而达到放置到左栏的位置。
+        -->
+        <!--
+        	STEP4 PULL the right cloumn into place
+        	作者：offline
+        	时间：2019-02-16
+        	描述：将右列放置到右栏中，具体的操作可以参考左栏；但是作者在这里提供了一个比较简单的方法
+        	就是直接设置其margin-right值为负的其宽度个单位，这样右列就会自动升到右栏中
+        -->
+        <!--
+        	作者：offline
+        	时间：2019-02-16
+        	描述：至此，基本上完成了整个圣杯布局，然后我们为了确保能够正确的显示；我们需要将body的宽度
+        	设置一个最小宽度以确保圣杯布局能够正确的显示在用户的界面上
+        	这个宽度为：2*左列的宽+右列的宽(在我们这里为2*150px+120px)
+        -->
+        <!--
+        	作者：offline
+        	时间：2019-02-16
+        	描述：关于圣杯布局的一点总结：首先我们需要理解圣杯布局的核心思想，即通过最外面一层div包裹所需要的栏
+        	然后通过浮动让每一栏能够位于同一行上，最后通过定位的方式将其调整到合适的位置
+        	需要注意的点有：1.中间自适应栏需要写在其他栏之前，否则无法让每一栏位于统一行上；2.要记得清除浮动，防止尾部占据容器位置
+        -->
+        <!--
+        	作者：offline
+        	时间：2019-02-16
+        	描述：圣杯布局的特性有以下几点：
+        	1.have a fluid center with fixed width sidebars, (有一个自适应栏和固宽栏)
+			2.allow the center column to appear first in the source,(中间自适应栏要优先于其他栏被解析)
+			3.allow any column to be the tallest,
+			4.require only a single extra div of markup (仅仅只需要额外添加一个div)
+			5.require very simple CSS, with minimal hacks patches.(CSS简单并且有良好的兼容性)
+        -->
+		<div id="header"></div>
+		<div id="container">
+			<div id="center" class="cloumns"></div>
+			<div id="left" class="cloumns"></div>		
+			<div id="right" class="cloumns"></div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>
